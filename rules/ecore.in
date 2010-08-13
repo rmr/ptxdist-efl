@@ -1,0 +1,23 @@
+## SECTION=multimedia_efl
+
+config ECORE
+	tristate
+	select EINA
+	select OPENSSL if ECORE_SSL
+	select XORG_APP_XINPUT if ECORE_ENABLE_INPUT
+	select XORG if ECORE_ENABLE_INPUT
+	prompt "ecore"
+	help
+	  Ecore is the core event abstraction layer that makes event
+	  loops, timeouts and idle handlers fast, optimized, and
+	  convenient.
+
+if ECORE
+config ECORE_SSL
+	bool
+	prompt "ssl support"
+
+config ECORE_ENABLE_INPUT
+	bool
+	prompt "xinput support"
+endif
