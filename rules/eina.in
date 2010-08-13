@@ -1,0 +1,20 @@
+## SECTION=multimedia_efl
+
+config EINA
+	tristate
+	prompt "eina"
+	help
+	  Eina is the base library of all data types used by the EFL.
+	  It is designed to reduce CPU use as much as possible without
+	  using too much memory. It provides
+	  * list and inlined
+	  * hash
+	  * red-black tree
+	  * shared string
+	  * rectangle
+	  * array iterator and accessor
+	  * memory pool
+	  * module
+	  * fixed point and magic check helper.
+	  The library itself is small and could easily be used without
+	  any other EFL libraries.
