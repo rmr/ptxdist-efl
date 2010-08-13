@@ -1,0 +1,12 @@
+## SECTION=multimedia_efl
+
+config E_DBUS
+	tristate
+	select DBUS
+	select EINA
+	select ECORE
+	prompt "e_dbus"
+	help
+	  This is the start of some basic convenience wrappers around dbus
+	  to ease integrating dbus with EFL based applications.
+
