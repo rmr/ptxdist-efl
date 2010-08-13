@@ -61,6 +61,22 @@ menu "sdl                           "
 source "generated/multimedia_sdl.in"
 endmenu
 
+menuconfig EFL
+	bool
+	prompt "efl                           "
+	help
+	  Enlightenment Foundation Libraries is a collection of libraries
+	  origionally written for use by the Enlightenment DR17 Window Manager.
+	  However, as these libraries grew and were tested and deployed more
+	  and more, general functionality was added bringing us to enjoy a rich
+	  and powerful set of libraries that can be used to help solve all sorts
+	  of problems and act as a venerable alternative to the currently popular
+	  GTK and QT library sets.
+
+if EFL
+source "generated/multimedia_efl.in"
+endif
+
 menu "sound                         "
 source "generated/multimedia_sound.in"
 endmenu
