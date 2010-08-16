@@ -15,4 +15,13 @@ config IFPLUGD_STATUS
 	prompt "Install ifplugstatus"
 	help
 	  ifplugstatus is a small utility showing link beat status.
+
+config IFPLUGD_STARTSCRIPT
+	bool
+	prompt "Install /etc/init.d/ifplugd"
+	help
+	  Installs (if present) the
+	  "./projectroot/etc/init.d/ifplugd" startscript from your
+	  workspace, otherwise a generic one from the ptxdist
+	  installation ("<PTXDIST>/generic/etc/init.d/ifplugd").
 endif

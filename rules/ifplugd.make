@@ -63,6 +63,18 @@ $(STATEDIR)/ifplugd.targetinstall:
 	@$(call install_copy, ifplugd, 0, 0, 0755, -, /usr/sbin/ifplugd)
 	@$(call install_copy, ifplugd, 0, 0, 0755, -, /etc/ifplugd/ifplugd.action, n)
 
+ifdef PTXCONF_INITMETHOD_BBINIT
+ifdef PTXCONF_IFPLUGD_STARTSCRIPT
+	@$(call install_alternative, ifplugd, 0, 0, 0755, /etc/init.d/ifplugd, n)
+
+ifneq ($(call remove_quotes,$(PTXCONF_IFPLUGD_BBINIT_LINK)),)
+	@$(call install_link, ifplugd, \
+		../init.d/ifplugd, \
+		/etc/rc.d/$(PTXCONF_IFPLUGD_BBINIT_LINK))
+endif
+endif
+endif
+
 ifdef PTXCONF_IFPLUGD_STATUS
 	@$(call install_copy, ifplugd, 0, 0, 0755, -, /usr/sbin/ifplugstatus)
 endif
