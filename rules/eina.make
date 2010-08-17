@@ -26,6 +26,9 @@ EINA_DIR      := $(BUILDDIR)/$(EINA)
 # ----------------------------------------------------------------------------
 
 EINA_CONF_TOOL := autoconf
+EINA_CONF_OPT := \
+	$(CROSS_AUTOCONF_USR) \
+	--disable-doc
 
 # ----------------------------------------------------------------------------
 # Target-Install
