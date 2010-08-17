@@ -3,9 +3,9 @@
 menuconfig ECORE
 	tristate "ecore"
 	select EINA
-	select OPENSSL if ECORE_SSL
-	select XORG_APP_XINPUT if ECORE_ENABLE_INPUT
-	select XORG if ECORE_ENABLE_INPUT
+	select OPENSSL		if ECORE_SSL
+	select XORG_LIB_X11
+	select XORG_PROTO_INPUT	if ECORE_ENABLE_INPUT
 	help
 	  Ecore is the core event abstraction layer that makes event
 	  loops, timeouts and idle handlers fast, optimized, and
