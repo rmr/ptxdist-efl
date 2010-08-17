@@ -1,7 +1,7 @@
 # -*-makefile-*-
 #
 # Copyright (C) 2007 by Lars Munch <lars@segv.dk>
-#		2010 by Ryan Raasch <ryan.raasch@gmail.com>
+#               2010 by Ryan Raasch <ryan.raasch@gmail.com>
 #
 # See CREDITS for details about who has contributed to this project.
 #
