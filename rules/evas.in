@@ -1,0 +1,114 @@
+## SECTION=multimedia_efl
+
+menuconfig EVAS
+	tristate
+	select FREETYPE
+	select EINA
+	select FONTCONFIG if EVAS_FONTCONFIG
+	select LIBJPEG	  if EVAS_IMAGE_LOADER_LIBJPEG
+	select LIBPNG	  if EVAS_IMAGE_LOADER_LIBPNG
+	select EET	  if EVAS_IMAGE_LOADER_EET
+	select XORG_LIB_XPM if EVAS_IMAGE_LOADER_PMAPS
+	select XORG_LIB_XPM if EVAS_IMAGE_LOADER_XPM
+	select XORG_LIB_X11 if EVAS_XORG_LIB_X11
+	select XORG_LIB_XEXT if EVAS_XORG_LIB_XEXT
+	select XORG_LIB_XRENDER if EVAS_XORG_LIB_XRENDER
+	prompt "evas                          "
+	help
+	  Evas is the EFL canvas library, for creating
+	  areas, or windows, that applications can draw
+	  on in an X Window System.
+
+if EVAS
+
+config EVAS_FONTCONFIG
+	bool
+	prompt "fontconfig support"
+	help
+	 Fontconfig support for evas.
+
+menu "Evas Image Loaders            "
+config EVAS_IMAGE_LOADER_LIBJPEG
+	bool
+	prompt "libjpeg support"
+	help
+	  libjpeg support for evas image loading
+
+config EVAS_IMAGE_LOADER_LIBPNG
+	bool
+	prompt "libpng support"
+	help
+	  libpng support for evas image loading
+
+config EVAS_IMAGE_LOADER_GIF
+	bool
+	prompt "gif support"
+	help
+	  gif support for evas image loading
+
+config EVAS_IMAGE_LOADER_EET
+	bool
+	prompt "libeet support"
+	help
+	  eet support for loading/saving theme files in evas.
+
+if XORG
+
+config EVAS_IMAGE_LOADER_PMAPS
+	bool
+	prompt "pmaps support"
+	help
+	  pmaps support for evas image loading.
+
+config EVAS_IMAGE_LOADER_XPM
+	bool
+	prompt "xpm support"
+	help
+	  xpm support for evas image loading.
+
+endif
+
+config EVAS_IMAGE_LOADER_SVG
+	bool
+	depends on BROKEN
+	prompt "svg support"
+	help
+	  svg support for evas image loading.
+
+config EVAS_IMAGE_LOADER_TIFF
+	bool
+	depends on BROKEN
+	prompt "tiff support"
+	help
+	  tiff support for evas image loading.
+
+
+endmenu
+
+menu "Evas X11 Options              "
+
+if XORG
+
+config EVAS_XORG_LIB_X11
+	bool
+	prompt "Xorg libx11 support"
+	help
+	  Main X11 library support for evas.
+
+config EVAS_XORG_LIB_XEXT
+	bool
+	prompt "libXext support"
+	help
+	  X Extensions library support for evas.
+
+config EVAS_XORG_LIB_XRENDER
+	bool
+	prompt "libxrender support"
+	help
+	 X Render Extension library support for evas.
+
+endif
+
+endmenu
+
+endif
