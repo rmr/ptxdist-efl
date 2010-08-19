@@ -3,9 +3,26 @@
 menuconfig ECORE
 	tristate "ecore                         "
 	select EINA
+	select XORG		if ECORE_XINPUT
+	select XORG_APP_XINPUT  if ECORE_XINPUT
+	select LIBCURL		if ECORE_CURL
 	select OPENSSL		if ECORE_SSL
-	select XORG_LIB_X11
-	select XORG_PROTO_INPUT	if ECORE_ENABLE_INPUT
+	select EVAS		if ECORE_EVAS
+	select ECORE_INPUT	if ECORE_EVAS
+	select ECORE_EVAS_INPUT if ECORE_EVAS
+	select ECORE_CON	if ECORE_IPC
+	select EVAS		if ECORE_IMF_EVAS
+	select ECORE_INPUT	if ECORE_X
+	select XORG_LIB_X11     if ECORE_X
+	select DIRECTFB		if ECORE_EVAS_DIRECTFB
+	select FBUTILS		if ECORE_FB
+	select TSLIB		if ECORE_TSLIB
+	select FBUTILS		if ECORE_EVAS_FB
+	select XORG_LIB_X11     if ECORE_EVAS_SOFTWARE_X11
+	select SDL		if ECORE_EVAS_SOFTWARE_SDL
+	select SDL_OPENGL	if ECORE_EVAS_OPENGL_SDL
+	select XORG_LIB_XRENDER if ECORE_EVAS_XRENDER_XCB
+	select XORG_LIB_XRENDER if ECORE_EVAS_XRENDER_X11
 	help
 	  Ecore is the core event abstraction layer that makes event
 	  loops, timeouts and idle handlers fast, optimized, and
@@ -13,12 +30,205 @@ menuconfig ECORE
 
 if ECORE
 
+menu "ecore options                "
+
 config ECORE_SSL
 	bool
-	prompt "ssl support"
+	prompt "ssl"
+	help
+	  Enable OpenSSL support for ecore.
 
-config ECORE_ENABLE_INPUT
+config ECORE_XINPUT
 	bool
-	prompt "xinput support"
+	prompt "xinput"
+	help
+	  Enable xinput support for ecore.
 
+config ECORE_CURL
+	bool
+	prompt "curl support"
+	help
+	  Allow ecore to use libcurl.
+
+config ECORE_TESTS
+	bool
+	prompt "tests"
+	help
+	  Build ecore tests to the platform.
+
+config ECORE_ABSTRACT_SOCKETS
+	bool
+	prompt "abstract sockets"
+	help
+	  Enable abstract sockets support for ecore.
+
+config ECORE_XTEST
+	bool
+	prompt "xtest"
+	help
+	  ecore_x support for Xtest extension.
+
+config ECORE_TSLIB
+	bool
+	prompt "tslib"
+	help
+	  Enable the tslib support in ecore.
+
+endmenu
+
+menu "ecore modules                "
+
+config ECORE_X
+	bool
+	prompt "ecore-x"
+	help
+	  enable the ecore_x module
+
+config ECORE_FILE
+	bool
+	prompt "ecore-file"
+	help
+	  Files utility functions.
+
+config ECORE_CON
+	bool
+	prompt "ecore-con"
+	help
+	  The Ecore Connection Library ( Ecore_Con ) provides
+	  simple mechanisms for communications between programs
+	  using reliable sockets. It saves the programmer from
+	  having to worry about file descripters and waiting for
+	  incoming connections.
+
+config ECORE_IMF
+	bool
+	prompt "ecore-imf"
+	help
+	  A core event abstracter layer and X abstraction layer
+	  that makes doing selections, Xdnd, general X stuff,
+	  and event loops, timeouts and idle handlers fast, optimised,
+	  and convenient.
+
+config ECORE_INPUT
+	bool
+	prompt "ecore-input"
+	help
+	  Enable the ecore_input module
+
+config ECORE_IPC
+	bool
+	prompt "ecore-ipc"
+	help
+	  Enable the ecore_ipc module
+
+config ECORE_FB
+	bool
+	prompt "fb"
+	help
+	  Enable the ecore_fb module.
+
+config ECORE_EVAS
+	tristate
+	prompt "Ecore Evas"
+	help
+	  enable the ecore_evas module
+
+if ECORE_IMF
+
+config ECORE_IMF_EVAS
+	bool
+	prompt "ecore-evas-imf"
+	help
+	  enable the ecore_imf_evas module.
+
+endif
+
+endmenu
+
+if ECORE_EVAS && ECORE_X
+
+menu "ecore-evas X options         "
+
+config ECORE_EVAS_SOFTWARE_X11
+	bool
+	prompt "software-x11"
+	help
+	  enable Software x11 support in the ecore_evas module
+
+config ECORE_EVAS_XRENDER_X11
+	bool
+	prompt "xrender-x11"
+	help
+	  enable xrender x11 support in the ecore_evas module
+
+config ECORE_EVAS_OPENGL_X11
+	bool
+	prompt "opengl-x11"
+	help
+	  enable opengl x11 support in the ecore_evas module
+
+config ECORE_EVAS_SOFTWARE_16_X11
+	bool
+	prompt "software 16 bit"
+	help
+	  enable software 16 bit x11 support in the ecore_evas module
+
+config ECORE_EVAS_XRENDER_XCB
+	bool
+	prompt "xrender xcb"
+	help
+	  enable xrender xcb support in the ecore_evas module
+
+endmenu
+endif
+
+if ECORE_EVAS
+
+menu "ecore-evas options           "
+
+config ECORE_EVAS_SOFTWARE_BUFF
+	bool
+	prompt "software-buffer"
+	help
+	  enable Software Buffer support in the ecore_evas module
+
+config ECORE_EVAS_OPENGL_GLEW
+	bool
+	prompt "opengl glew"
+	depends on BROKEN
+	help
+	  enable opengl glew support in the ecore_evas module
+
+config ECORE_EVAS_SOFTWARE_SDL
+	bool
+	prompt "software sdl"
+	help
+	  enable software sdl support in the ecore_evas module
+
+config ECORE_EVAS_OPENGL_SDL
+	bool
+	prompt "opengl sdl"
+	help
+	  enable opengl sdl support in the ecore_evas module
+
+config ECORE_EVAS_DIRECTFB
+	bool
+	prompt "directfb"
+	help
+	  enable directfb support in the ecore_evas module
+
+config ECORE_EVAS_FB
+	bool
+	prompt "fb"
+	help
+	  enable framebuffer support in the ecore_evas module
+
+config ECORE_EVAS_INPUT
+	bool
+	prompt "ecore-evas-input"
+	help
+	  enable the ecore_input_evas module
+
+endmenu
+endif
 endif
