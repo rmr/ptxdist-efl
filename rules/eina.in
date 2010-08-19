@@ -2,7 +2,7 @@
 
 menuconfig EINA
 	tristate
-	prompt "eina               "
+	prompt "eina                          "
 	help
 	  Eina is the base library of all data types used by the EFL.
 	  It is designed to reduce CPU use as much as possible without
