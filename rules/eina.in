@@ -1,8 +1,8 @@
 ## SECTION=multimedia_efl
 
-config EINA
+menuconfig EINA
 	tristate
-	prompt "eina"
+	prompt "eina               "
 	help
 	  Eina is the base library of all data types used by the EFL.
 	  It is designed to reduce CPU use as much as possible without
@@ -18,3 +18,26 @@ config EINA
 	  * fixed point and magic check helper.
 	  The library itself is small and could easily be used without
 	  any other EFL libraries.
+
+
+if EINA
+
+config EINA_TESTS
+	bool
+	prompt "tests"
+	help
+	  Enable tests
+
+config EINA_BENCHMARK
+	bool
+	prompt "benchmark"
+	help
+	  Enable benchmarking.
+
+config EINA_COVERAGE
+	bool
+	prompt "coverage"
+	help
+	  Enable coverage profiling instrumentation.
+
+endif

@@ -30,6 +30,24 @@ EINA_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-doc
 
+ifdef PTXCONF_EINA_TESTS
+EINA_CONF_OPT += --enable-tests
+else
+EINA_CONF_OPT += --disable-tests
+endif
+
+ifdef PTXCONF_EINA_BENCHMARK
+EINA_CONF_OPT += --enable-benchmark
+else
+EINA_CONF_OPT += --disable-benchmark
+endif
+
+ifdef PTXCONF_EINA_CONVERAGE
+EINA_CONF_OPT += --enable-coverage
+else
+EINA_CONF_OPT += --disable-coverage
+endif
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
