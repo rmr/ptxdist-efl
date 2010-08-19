@@ -1,7 +1,7 @@
 ## SECTION=multimedia_efl
 
 menuconfig ECORE
-	tristate "ecore"
+	tristate "ecore                         "
 	select EINA
 	select OPENSSL		if ECORE_SSL
 	select XORG_LIB_X11
