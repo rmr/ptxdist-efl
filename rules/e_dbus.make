@@ -26,15 +26,43 @@ E_DBUS_DIR      := $(BUILDDIR)/$(E_DBUS)
 # ----------------------------------------------------------------------------
 
 E_DBUS_CONF_TOOL := autoconf
+E_DBUS_CONF_OPT := $(CROSS_AUTOCONF_USR)
 
-E_DBUS_CONF_OPT := \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-econnman \
-	--disable-ehal \
-	--disable-enotify \
-	--disable-ebluez \
-	--disable-eofono \
-	--disable-eukit
+ifdef PTXCONF_E_DBUS_ECONNMAN
+E_DBUS_CONF_OPT += --enable-econnman
+else
+E_DBUS_CONF_OPT += --disable-econnman
+endif
+
+ifdef PTXCONF_E_DBUS_EHAL
+E_DBUS_CONF_OPT += --enable-ehal
+else
+E_DBUS_CONF_OPT += --disable-ehal
+endif
+
+ifdef PTXCONF_E_DBUS_ENOTIFY
+E_DBUS_CONF_OPT += --enable-enotify
+else
+E_DBUS_CONF_OPT += --disable-enotify
+endif
+
+ifdef PTXCONF_E_DBUS_EBLUEZ
+E_DBUS_CONF_OPT += --enable-ebluez
+else
+E_DBUS_CONF_OPT += --disable-ebluez
+endif
+
+ifdef PTXCONF_E_DBUS_EOFONO
+E_DBUS_CONF_OPT += --enable-eofono
+else
+E_DBUS_CONF_OPT += --disable-eofono
+endif
+
+ifdef PTXCONF_E_DBUS_EUKIT
+E_DBUS_CONF_OPT += --enable-eukit
+else
+E_DBUS_CONF_OPT += --disable-eukit
+endif
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -49,6 +77,30 @@ $(STATEDIR)/e_dbus.targetinstall:
 	@$(call install_fixup, e_dbus, DESCRIPTION, missing)
 
 	@$(call install_lib,   e_dbus, 0, 0, 0644, libedbus-ver-svn-06)
+
+ifdef PTXCONF_E_DBUS_CONNMAN
+	@$(call install_lib,   e_dbus, 0, 0, 0644, libeconnman-ver-svn-06)
+endif
+
+ifdef PTXCONF_E_DBUS_EHAL
+	@$(call install_lib,   e_dbus, 0, 0, 0644, libehal-ver-svn-06)
+endif
+
+#ifdef PTXCONF_E_DBUS_ENOTIFY
+#	@$(call install_lib,   e_dbus, 0, 0, 0644, libenotify-ver-svn-06)
+#endif
+
+ifdef PTXCONF_E_DBUS_BLUEZ
+	@$(call install_lib,   e_dbus, 0, 0, 0644, libebluez-ver-svn-06)
+endif
+
+ifdef PTXCONF_E_DBUS_EOFONO
+	@$(call install_lib,   e_dbus, 0, 0, 0644, libeofono-ver-svn-06)
+endif
+
+ifdef PTXCONF_E_DBUS_EUKIT
+	@$(call install_lib,   e_dbus, 0, 0, 0644, libeukit-ver-svn-06)
+endif
 
 	@$(call install_finish,e_dbus)
 	@$(call touch)

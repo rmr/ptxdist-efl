@@ -1,12 +1,51 @@
 ## SECTION=multimedia_efl
 
-config E_DBUS
+menuconfig E_DBUS
 	tristate
 	select DBUS
 	select EINA
 	select ECORE
-	prompt "e_dbus"
+	prompt "e_dbus             "
 	help
 	  This is the start of some basic convenience wrappers around dbus
 	  to ease integrating dbus with EFL based applications.
 
+if E_DBUS
+
+config E_DBUS_ECONNMAN
+	bool
+	prompt "econnman"
+	help
+	 Efl Dbus communication wrappers to Connman.
+
+config E_DBUS_EHAL
+	bool
+	prompt "ehal"
+	help
+	  Efl Dbus communication wrappers to HAL.
+
+config E_DBUS_ENOTIFY
+	bool
+	prompt "enotify"
+	help
+	  Efl Dbus communication wrappers to org.freedesktop.Notifications.
+
+config E_DBUS_EBLUEZ
+	bool
+	prompt "ebluez"
+	help
+	  Efl Dbus communication wrappers to Bluez.
+
+config E_DBUS_EOFONO
+	bool
+	prompt "eofono"
+	help
+	  Efl Dbus communication wrappers to Ofono.
+
+config E_DBUS_EUKIT
+	bool
+	prompt "eukit"
+	help
+	  Efl Dbus communication wrappers to Ukit.
+
+endif
