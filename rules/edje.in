@@ -1,0 +1,21 @@
+## SECTION=multimedia_efl
+
+config EDJE
+	tristate
+	prompt "edje"
+	select LUA
+	select EINA
+	select EET
+	select EVAS
+	select ECORE
+	select ECORE_FILE
+	select EMBRYO
+	help
+	  Edje is a library that attempts to separate
+	  the user interface from the application. It
+	  allows applications to be skinnable, so that
+	  it is possible to change the GUI of an application
+	  without changing the application itself.
+	  Edje-based applications use files which contain the
+	  specifications for the GUI layout that is to be used.
+	  Edje themes are contained using EET generated files.
