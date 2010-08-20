@@ -1,0 +1,21 @@
+## SECTION=multimedia_efl
+
+config EFREET
+	tristate
+	select EINA
+	select ECORE
+	select ECORE_FILE
+	select EET
+	prompt "efreet"
+	help
+	  An implementation of several specifications from
+	  freedesktop.org intended for use in Enlightenment
+	  DR17 (e17) and other applications using the Enlightenment
+	  Foundation Libraries (EFL). Currently, the following
+	  specifications are included:
+	  * Base Directory
+	  * Desktop Entry
+	  * Icon Theme
+	  * Menu
+	  * Trash
+	  * Mime
