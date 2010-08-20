@@ -1,0 +1,8 @@
+## SECTION=multimedia_efl
+
+config EMBRYO
+	tristate
+	prompt "embryo"
+	help
+	  Embryo implements a scripting language
+	  used by other parts of the EFL, such as Edje.
