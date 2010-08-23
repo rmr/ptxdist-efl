@@ -1,0 +1,11 @@
+## SECTION=hosttools_noprompt
+
+config HOST_EDJE
+       tristate
+       select HOST_LUA
+       select HOST_EINA
+       select HOST_EET
+       select HOST_ECORE
+       select HOST_EVAS
+       select HOST_EMBRYO
+       default ALLYES
