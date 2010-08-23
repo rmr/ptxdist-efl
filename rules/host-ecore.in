@@ -1,0 +1,6 @@
+## SECTION=hosttools_noprompt
+
+config HOST_ECORE
+       tristate
+       select HOST_EINA
+       default ALLYES
