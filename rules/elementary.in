@@ -1,0 +1,65 @@
+## SECTION=multimedia_efl
+
+menuconfig ELEMENTARY
+	tristate
+	prompt "elementary                    "
+	select EINA
+	select EET
+	select EVAS
+	select ECORE
+	select ECORE_EVAS
+	select ECORE_FILE
+	select ECORE_IMF
+	select EDJE
+	select ECORE_X   if ELEMENTARY_ECORE_X
+	select SDL       if ELEMENTARY_ECORE_SDL
+	select E_DBUS    if ELEMENTARY_EDBUS
+	select EFREET    if ELEMENTARY_EFREET
+	help
+	  Elementary is a widget set based on the EFL
+	  that makes heavy use of Evas and Edje to
+	  provide a fast, stable, and scalable library
+	  that can be used to create both rich and fast
+	  applications that can be used on anything from
+	  every day desktop computers to small PDAs and
+	  set-top boxes. It is designed to fully expose
+	  the capability of the EFL.
+
+if ELEMENTARY
+
+config ELEMENTARY_ECORE_X
+	bool
+	prompt "ecore-x"
+	help
+
+config ELEMENTARY_ECORE_FB
+	bool
+	prompt "ecore-fb"
+	help
+
+config ELEMENTARY_ECORE_SDL
+	bool
+	prompt "ecore-sdl"
+	help
+
+config ELEMENTARY_EDBUS
+	bool
+	prompt "edbus support"
+	help
+
+config ELEMENTARY_EFREET
+	bool
+	prompt "efreet support"
+	help
+
+config ELEMENTARY_EWEATHER
+	bool
+	prompt "eweather"
+	help
+
+config ELEMENTARY_ETHUMB
+	bool
+	prompt "ethumb"
+	help
+
+endif
