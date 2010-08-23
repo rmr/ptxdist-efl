@@ -1,0 +1,11 @@
+## SECTION=hosttools_noprompt
+
+config HOST_EVAS
+       tristate
+       select HOST_FREETYPE
+       select HOST_LIBJPEG
+       select HOST_LIBPNG
+       select HOST_LUA
+       select HOST_EINA
+       select HOST_EET
+       default ALLYES
