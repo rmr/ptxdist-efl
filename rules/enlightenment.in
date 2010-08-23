@@ -1,0 +1,482 @@
+## SECTION=multimedia_efl
+
+menuconfig ENLIGHTENMENT
+	tristate
+	prompt "enlightenment                 "
+	select EFREET
+	select EINA
+	select EET
+	select EVAS
+	select ECORE_EVAS
+	select ECORE_FILE
+	select ECORE_IPC
+	select EDJE
+	select ENLIGHTENMENT_FILES if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_DEVICE_HAL if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_DEVICE_UDEV if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_EXCHANGE if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_IBAR if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_DROPSHADOW if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CLOCK if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_PAGER if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_BATTERY if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_TEMPERATURE if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CPUFREQ if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_IBOX if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_START if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_WINLIST if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_FILEMAN if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_FILEMAN_OPINFO if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_WIZARD if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_WALLPAPER if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_WALLPAPER2 if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_THEME if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_COLORS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_FONTS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_BORDERS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_ICON_THEME if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_MOUSE_CURSOR if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_TRANSITIONS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_STARTUP if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_INTL if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_IMC if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_PROFILES if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_MSGBUS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_ENGINE if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_APPLICATIONS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_DESTS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_DESK if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_DISPLAY if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_DESKLOCK if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_SCREENSAVER if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_DPMS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_SHELVES if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_KEYBINDINGS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_MOUSEBINDINGS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_EDJEBINDINGS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_ACPIBINDINGS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_MOUSE if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_WINDOW_DISPLAY if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_WINDOW_FOCUS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_WINDOW_REMEMBERS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_WINDOW_MANUPULATION if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_MENUS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_CLIENTLIST if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_DIALOGS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_PERFORMANCE if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_WINLIST if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_PATHS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_MIME if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_INTERACTION if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONF_SCALE if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_GADMAN if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_MIXER if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_CONNMAN if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_BLUEZ if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_OFONO if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_ILLUME if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_ILLUME2 if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_SYSCON if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_EVERYTHING if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_EVERYTHING_FILES if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_EVERYTHING_APPS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_EVERYTHING_CALC if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_EVERYTHING_ASPELL if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_EVERYTHING_SETTINGS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_EVERYTHING_WINDOWS if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_SYSTRAY if ENLIGHTENMENT_WORLD
+	select ENLIGHTENMENT_COMP if ENLIGHTENMENT_WORLD
+	help
+	  FIXME
+
+if ENLIGHTENMENT
+
+config ENLIGHTENMENT_WORLD
+       bool
+       prompt "World"
+       help
+         To enable and build everything in e, select this
+	 and save some time.
+
+config ENLIGHTENMENT_FILES
+	bool
+	prompt "files"
+	help
+
+config ENLIGHTENMENT_DEVICE_HAL
+	bool
+	prompt "device hal"
+	help
+
+config ENLIGHTENMENT_DEVICE_UDEV
+	bool
+	prompt "device udev"
+	help
+
+config ENLIGHTENMENT_EXCHANGE
+	bool
+	prompt "exchange"
+	help
+
+config ENLIGHTENMENT_IBAR
+	bool
+	prompt "ibar"
+	help
+
+config ENLIGHTENMENT_DROPSHADOW
+	bool
+	prompt "dropshadow"
+	help
+
+config ENLIGHTENMENT_CLOCK
+	bool
+	prompt "clock"
+	help
+
+config ENLIGHTENMENT_PAGER
+	bool
+	prompt "pager"
+	help
+
+config ENLIGHTENMENT_BATTERY
+	bool
+	prompt "battery"
+	help
+
+config ENLIGHTENMENT_TEMPERATURE
+	bool
+	prompt "temperature"
+	help
+
+config ENLIGHTENMENT_CPUFREQ
+	bool
+	prompt "cpufreq"
+	help
+
+config ENLIGHTENMENT_IBOX
+	bool
+	prompt "ibox"
+	help
+
+config ENLIGHTENMENT_START
+	bool
+	prompt "start"
+	help
+
+config ENLIGHTENMENT_WINLIST
+	bool
+	prompt "winlist"
+	help
+
+config ENLIGHTENMENT_FILEMAN
+	bool
+	prompt "fileman"
+	help
+
+config ENLIGHTENMENT_FILEMAN_OPINFO
+	bool
+	prompt "fileman opinfo"
+	help
+
+config ENLIGHTENMENT_WIZARD
+	bool
+	prompt "wizard"
+	help
+
+config ENLIGHTENMENT_CONF
+	bool
+	prompt "conf"
+	help
+
+config ENLIGHTENMENT_CONF_WALLPAPER
+	bool
+	prompt "conf wallpaper"
+	help
+
+config ENLIGHTENMENT_CONF_WALLPAPER2
+	bool
+	prompt "conf wallpaper2"
+	help
+
+config ENLIGHTENMENT_CONF_THEME
+	bool
+	prompt "conf theme"
+	help
+
+config ENLIGHTENMENT_CONF_COLORS
+	bool
+	prompt "conf colors"
+	help
+
+config ENLIGHTENMENT_CONF_FONTS
+	bool
+	prompt "conf fonts"
+	help
+
+config ENLIGHTENMENT_CONF_BORDERS
+	bool
+	prompt "conf borders"
+	help
+
+config ENLIGHTENMENT_CONF_ICON_THEME
+	bool
+	prompt "conf icon theme"
+	help
+
+config ENLIGHTENMENT_MOUSE_CURSOR
+	bool
+	prompt "mouse cursor"
+	help
+
+config ENLIGHTENMENT_CONF_TRANSITIONS
+	bool
+	prompt "conf transitions"
+	help
+
+config ENLIGHTENMENT_CONF_STARTUP
+	bool
+	prompt "conf startup"
+	help
+
+config ENLIGHTENMENT_CONF_INTL
+	bool
+	prompt "conf intl"
+	help
+
+config ENLIGHTENMENT_CONF_IMC
+	bool
+	prompt "conf imc"
+	help
+
+config ENLIGHTENMENT_CONF_PROFILES
+	bool
+	prompt "conf profiles"
+	help
+
+config ENLIGHTENMENT_MSGBUS
+	bool
+	prompt "msgbus"
+	help
+
+config ENLIGHTENMENT_CONF_ENGINE
+	bool
+	prompt "conf engine"
+	help
+
+config ENLIGHTENMENT_CONF_APPLICATIONS
+	bool
+	prompt "conf applications"
+	help
+
+config ENLIGHTENMENT_CONF_DESTS
+	bool
+	prompt "conf dests"
+	help
+
+config ENLIGHTENMENT_CONF_DESK
+	bool
+	prompt "conf desk"
+	help
+
+config ENLIGHTENMENT_CONF_DISPLAY
+	bool
+	prompt "conf display"
+	help
+
+config ENLIGHTENMENT_DESKLOCK
+	bool
+	prompt "desklock"
+	help
+
+config ENLIGHTENMENT_CONF_SCREENSAVER
+	bool
+	prompt "conf screensaver"
+	help
+
+config ENLIGHTENMENT_CONF_DPMS
+	bool
+	prompt "conf dpms"
+	help
+
+config ENLIGHTENMENT_CONF_SHELVES
+	bool
+	prompt "conf shelves"
+	help
+
+config ENLIGHTENMENT_CONF_KEYBINDINGS
+	bool
+	prompt "conf keybindings"
+	help
+
+config ENLIGHTENMENT_CONF_MOUSEBINDINGS
+	bool
+	prompt "conf mousebindings"
+	help
+
+config ENLIGHTENMENT_CONF_EDJEBINDINGS
+	bool
+	prompt "conf edjebindings"
+	help
+
+config ENLIGHTENMENT_CONF_ACPIBINDINGS
+	bool
+	prompt "conf acpibindings"
+	help
+
+config ENLIGHTENMENT_CONF_MOUSE
+	bool
+	prompt "conf mouse"
+	help
+
+config ENLIGHTENMENT_CONF_WINDOW_DISPLAY
+	bool
+	prompt "conf window display"
+	help
+
+config ENLIGHTENMENT_CONF_WINDOW_FOCUS
+	bool
+	prompt "conf window focus"
+	help
+
+config ENLIGHTENMENT_CONF_WINDOW_REMEMBERS
+	bool
+	prompt "conf window remembers"
+	help
+
+config ENLIGHTENMENT_CONF_WINDOW_MANUPULATION
+	bool
+	prompt "conf window manipulation"
+	help
+
+config ENLIGHTENMENT_CONF_MENUS
+	bool
+	prompt "conf menus"
+	help
+
+config ENLIGHTENMENT_CONF_CLIENTLIST
+	bool
+	prompt "conf clientlist"
+	help
+
+config ENLIGHTENMENT_CONF_DIALOGS
+	bool
+	prompt "conf dialogs"
+	help
+
+config ENLIGHTENMENT_CONF_PERFORMANCE
+	bool
+	prompt "conf performance"
+	help
+
+config ENLIGHTENMENT_CONF_WINLIST
+	bool
+	prompt "conf winlist"
+	help
+
+config ENLIGHTENMENT_CONF_PATHS
+	bool
+	prompt "conf paths"
+	help
+
+config ENLIGHTENMENT_CONF_MIME
+	bool
+	prompt "conf mime"
+	help
+
+config ENLIGHTENMENT_CONF_INTERACTION
+	bool
+	prompt "conf interaction"
+	help
+
+config ENLIGHTENMENT_CONF_SCALE
+	bool
+	prompt "conf scale"
+	help
+
+config ENLIGHTENMENT_GADMAN
+	bool
+	prompt "gadman"
+	help
+
+config ENLIGHTENMENT_MIXER
+	bool
+	prompt "mixer"
+	help
+
+config ENLIGHTENMENT_CONNMAN
+	bool
+	prompt "connman"
+	help
+
+config ENLIGHTENMENT_BLUEZ
+	bool
+	prompt "bluez"
+	help
+
+config ENLIGHTENMENT_OFONO
+	bool
+	prompt "ofono"
+	help
+
+config ENLIGHTENMENT_ILLUME
+	bool
+	prompt "illume"
+	help
+
+config ENLIGHTENMENT_ILLUME2
+	bool
+	prompt "illume2"
+	help
+
+config ENLIGHTENMENT_SYSCON
+	bool
+	prompt "syscon"
+	help
+
+config ENLIGHTENMENT_EVERYTHING
+	bool
+	prompt "everything"
+	help
+
+config ENLIGHTENMENT_EVERYTHING_FILES
+	bool
+	prompt "everything files"
+	help
+
+config ENLIGHTENMENT_EVERYTHING_APPS
+	bool
+	prompt "everything apps"
+	help
+
+config ENLIGHTENMENT_EVERYTHING_CALC
+	bool
+	prompt "everything calc"
+	help
+
+config ENLIGHTENMENT_EVERYTHING_ASPELL
+	bool
+	prompt "everything aspell"
+	help
+
+config ENLIGHTENMENT_EVERYTHING_SETTINGS
+	bool
+	prompt "everything settings"
+	help
+
+config ENLIGHTENMENT_EVERYTHING_WINDOWS
+	bool
+	prompt "everything windows"
+	help
+
+config ENLIGHTENMENT_SYSTRAY
+	bool
+	prompt "everything systray"
+	help
+
+config ENLIGHTENMENT_COMP
+	bool
+	prompt "everything comp"
+	help
+
+endif
