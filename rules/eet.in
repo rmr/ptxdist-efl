@@ -1,0 +1,37 @@
+## SECTION=multimedia_efl
+
+menuconfig EET
+	tristate
+	select ZLIB
+	select LIBJPEG
+	select EINA
+	select OPENSSL if EET_OPENSSL
+	prompt "eet                           "
+	help
+	  EET is a library that is designed to store and load
+	  all type of data, locally or through a network stream.
+	  It is designed to be light-weight, efficient and quick.
+	  EET forms the basis of theme files in the EFL, i.e.
+	  if you want to install a theme for Enlightenment or
+	  another themable EFL app, you would be installing
+	  an EET-format file, which contains all of the theme graphics
+	  and configuration and do not need to be extracted onto the
+	  filesystem in order to be used.
+
+if EET
+
+config EET_GNUTLS
+	bool
+	depends on BROKEN
+	prompt "gnutls support"
+	help
+	  Enable gnutls support.
+
+config EET_OPENSSL
+	bool
+	prompt "openssl support"
+	help
+	  Enable openssl support.
+
+endif
+
