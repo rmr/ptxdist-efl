@@ -54,13 +54,13 @@ endif
 $(STATEDIR)/eet.targetinstall:
 	@$(call targetinfo)
 
-	@$(call install_init,  eet)
+	@$(call install_init, eet)
 	@$(call install_fixup, eet,PRIORITY,optional)
 	@$(call install_fixup, eet,SECTION,base)
 	@$(call install_fixup, eet,AUTHOR,"<Ryan Raasch ryan.raasch@gmail.com>")
 	@$(call install_fixup, eet,DESCRIPTION,missing)
 
-	@$(call install_lib,   eet, 0, 0, 0644, libeet)
+	@$(call install_lib, eet, 0, 0, 0644, libeet)
 
 	@$(call install_finish, eet)
 
