@@ -34,4 +34,3 @@ config EET_OPENSSL
 	  Enable openssl support.
 
 endif
-
