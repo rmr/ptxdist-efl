@@ -10,6 +10,7 @@ config EDJE
 	select ECORE
 	select ECORE_FILE
 	select EMBRYO
+	select HOST_EDJE if EDJE
 	help
 	  Edje is a library that attempts to separate
 	  the user interface from the application. It
